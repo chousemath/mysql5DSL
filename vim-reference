@@ -1,0 +1,31 @@
+" turn hybrid line numbers on
+:set number relativenumber
+:set nu rnu
+
+syntax on
+filetype plugin indent on
+filetype on
+filetype indent on
+autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2
+autocmd FileType eruby setlocal expandtab shiftwidth=2 tabstop=2
+
+
+" Specify a directory for plugins
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-surround'
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+call plug#end()
+
+" disable the typescript-vim tab settings
+let g:typescript_indent_disable = 1
+filetype plugin indent on
+" show existing tab with 4 spaces width
+set tabstop=4
+" when indenting with '>', use 4 spaces width
+set shiftwidth=4
+" On pressing tab, insert 4 spaces
+set expandtab
